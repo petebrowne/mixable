@@ -32,7 +32,7 @@ class Mixable
         extend @::, mixin::
       else
         extend @::, mixin
-      mixin.included @ if mixin.included
+      mixin.included @ if mixin.included?
       
 # Expose the public API
 root         = exports ? window
