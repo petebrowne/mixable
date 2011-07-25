@@ -34,7 +34,7 @@ class Mixable
         extend @::, mixin
       mixin.included @ if mixin.included
       
-# Expost the public API
+# Expose the public API
 root         = exports ? window
 root.extend  = extend
 root.Mixable = Mixable

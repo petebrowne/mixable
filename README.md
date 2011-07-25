@@ -43,7 +43,7 @@ It could be used when you cannot extend the Mixable class:
 
 ```coffee-script
 class Foo extends SomethingElse
-  extend Foo, Mixin
+  extend @, Mixin
 ```
 
 `Mixable.extend(mixins...)`
