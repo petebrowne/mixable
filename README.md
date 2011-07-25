@@ -8,7 +8,7 @@ Basic Usage
 
 Mixable is a simple class that includes two class methods familiar to Rubyists: `extend` & `include`. To use Mixable, inherit from it like any other class in CoffeeScript. In the class body you can call `extend` to add class methods and `include` to add instance methods:
 
-```coffee-script-script
+```coffee-script
 ClassMethods =
   classMethod: -> "a class method!"
   
