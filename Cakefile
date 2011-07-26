@@ -5,7 +5,7 @@ uglify   = require "uglify-js"
 
 SOURCE_FILES = [ "src/mixable.coffee" ]
 SPEC_FILES   = [ "spec/include-spec.coffee", "spec/extend-spec.coffee", "spec/mixable-spec.coffee" ]
-VERSION      = fs.readFileSync("VERSION", "utf8").replace /\s/g, ""
+VERSION      = JSON.parse(fs.readFileSync "package.json", "utf8").version
 HEADER       = """
 /**
  * Modular.js v#{VERSION}

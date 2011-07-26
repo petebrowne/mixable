@@ -1,0 +1,15 @@
+{
+  "name": "mixable",
+  "version": "0.3.0",
+  "description": "A Ruby style mixin library for CoffeeScript & Javascript",
+  "homepage": "http://github.com/petebrowne/mixable",
+  "repository": { "type": "git", "url": "http://github.com/petebrowne/mixable" },
+  "main": "dist/mixable",
+  "keywords": [ "mixin", "extend" ],
+  "author": { "name": "Pete Browne", "email": "me@petebrowne.com", "url": "http://petebrowne.com" },
+  "devDependencies" : {
+    "coffee-script": "1.1.x",
+    "jasmine-node": "1.0.x",
+    "uglify-js": "1.0.x"
+  }
+}
