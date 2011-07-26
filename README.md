@@ -25,38 +25,30 @@ new Foo().instanceMethod() # => "an instance method!"
 
 _Note: There is no support for `super` or method lookups. Mixable essentially just copies over properties from one object to another. If you need support for method lookups, look at [Classify](http://classify.petebrowne.com)._
 
-`extend(object, mixin)`
------------------------
+extend
+------
 
-Adds each property from the mixin to the given object. This is a global method, provided for convience.
+`extend(object, mixins...)`
+
+Adds the properties of each given mixin to the given object.
 
 ```coffee-script
 Mixin =
-  method: -> "a mixin method!"
-
-object = {}
-extend object, Mixin
-object.method() # => "a mixin method!"
+  method: -> "a method!"
+  
+foo = {}
+extend foo, Mixin
+foo.method() # => "a method!"
 ```
 
-It could be used when you cannot extend the Mixable class:
-
-```coffee-script
-class Foo extends SomethingElse
-  extend @, Mixin
-```
-
-`Mixable.extend(mixins...)`
----------------------------
-
-Adds the properties of each given mixin as class properties.
+This can be used within a class body when you cannot extend the Mixable class.
 
 ```coffee-script
 Mixin =
   method: -> "a class method!"
   
-class Foo extends Mixable
-  @extend Mixin
+class Foo
+  extend @, Mixin
   
 Foo.method() # => "a class method!"
 ```
@@ -68,25 +60,42 @@ class Mixin
   @classMethod: -> "a class method!"
   instanceMethod: -> "an instance method!"
   
-class Foo extends Mixable
-  @extend Mixin
+class Foo
+  extend @, Mixin
   
 Foo.classMethod()    # => TypeError: Foo has no method 'classMethod'
 Foo.instanceMethod() # => "an instance method!"
 ```
 
+---
 
-`Mixable.include(mixins...)`
-----------------------------
+`Mixable.extend(mixins...)`
 
-Adds the properties of each given mixin as instance properties.
+Adds the properties of each given mixin as class properties. Essentially a shortcut for `extend @, mixins...`.
+
+```coffee-script
+Mixin =
+  method: -> "a class method!"
+  
+class Foo extends Mixable
+  @extend Mixin
+  
+Foo.method() # => "a class method!"
+```
+
+include
+-------
+
+`include(object, mixins...)`
+
+Adds the properties of each given mixin as instance properties. This assumes the `object` is actually a class, and will throw a `TypeError` if it does not have a protoype.
 
 ```coffee-script
 Mixin =
   method: -> "an instance method!"
   
-class Foo extends Mixable
-  @include Mixin
+class Foo
+  include @, Mixin
   
 new Foo().method() # => "an instance method!"
 ```
@@ -98,11 +107,27 @@ class Mixin
   @classMethod: -> "a class method!"
   instanceMethod: -> "an instance method!"
   
-class Foo extends Mixable
-  @include Mixin
+class Foo
+  include @, Mixin
   
 Foo.classMethod()          # => "a class method!"
 new Foo().instanceMethod() # => "an instance method!"
+```
+
+---
+
+`Mixable.include(mixins...)`
+
+Adds the properties of each given mixin as instance properties. Essentially a shortcut for `include @, mixins...`.
+
+```coffee-script
+Mixin =
+  method: -> "an instance method!"
+  
+class Foo extends Mixable
+  @include Mixin
+  
+new Foo().method() # => "an instance method!"
 ```
 
 ---
