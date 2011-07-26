@@ -1,3 +1,5 @@
+{ include, extend, Mixable } = if require? then require "../dist/mixable" else window
+
 describe "extend", ->
   it "adds an object's methods", ->
     Foo =
