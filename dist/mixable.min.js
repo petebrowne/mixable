@@ -1,5 +1,5 @@
 /**
- * Modular.js v0.1.1
+ * Modular.js v0.2.0
  * http://github.com/petebrowne/mixable
  * 
  * Copyright (c) 2011, Pete Browne
