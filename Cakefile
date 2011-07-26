@@ -4,7 +4,7 @@ uglify   = require "uglify-js"
 { exec } = require "child_process"
 
 SOURCE_FILES = [ "src/mixable.coffee" ]
-SPEC_FILES   = [ "spec/mixable-spec.coffee" ]
+SPEC_FILES   = [ "spec/include-spec.coffee", "spec/extend-spec.coffee", "spec/mixable-spec.coffee" ]
 VERSION      = fs.readFileSync("VERSION", "utf8").replace /\s/g, ""
 HEADER       = """
 /**
