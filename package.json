@@ -10,6 +10,6 @@
   "devDependencies" : {
     "coffee-script": "1.1.x",
     "jasmine-node": "1.0.x",
-    "uglify-js": "1.0.x"
+    "uglify-js": "3.6.x"
   }
 }
